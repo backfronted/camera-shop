@@ -1,0 +1,30 @@
+{
+  "name": "camera-shop-payme",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "seed": "node scripts/seed.cjs"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.19.0",
+    "axios": "^1.7.2",
+    "cookie": "^0.6.0",
+    "jsonwebtoken": "^9.0.2",
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "swr": "^2.2.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "24.3.0",
+    "@types/react": "19.1.10",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "prisma": "^5.19.0",
+    "tailwindcss": "^3.4.17",
+    "typescript": "5.5.4"
+  }
+}

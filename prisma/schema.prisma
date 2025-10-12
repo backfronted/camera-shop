@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id        String   @id @default(cuid())
+  name      String
+  price     Int
+  image     String
+  tags      String    // CSV: "Wi-Fi,2MP"
+  features  String    // CSV: "1080p,IR"
+  stock     Int       @default(0)
+  createdAt DateTime  @default(now())
+}
+
+model Order {
+  id         String   @id @default(cuid())
+  createdAt  DateTime @default(now())
+
+  // Клиент
+  firstName  String
+  lastName   String
+  middleName String?   // отчество (необязательно)
+  phone      String
+  email      String?
+  address    String     // полный адрес доставки
+
+  // Состав и сумма
+  amount     Int        // сумма в сумах
+  items      String     // JSON-строка: [{id,name,price,qty}, ...]
+
+  // Статус
+  status     String   @default("PENDING")
+
+  // Совместимость со старым кодом (необязательное)
+  name       String?
+}

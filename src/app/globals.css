@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input { @apply px-3 py-2 rounded-xl border outline-none focus:ring-2 focus:ring-black/50; }
+.btn { @apply px-4 py-2 rounded-xl bg-black text-white hover:opacity-90 active:scale-95; }
+.card { @apply bg-white rounded-2xl shadow p-4; }
+/* --- UI helpers --- */
+.container { @apply max-w-6xl mx-auto px-4; }
+.btn-primary { @apply px-4 py-2 rounded-xl bg-black text-white hover:opacity-90 active:scale-95 transition; }
+.btn-outline { @apply px-3 py-2 rounded-xl border hover:bg-gray-50 active:scale-95 transition; }
+.badge { @apply px-2 py-0.5 rounded-full text-xs bg-gray-100; }
+.price { @apply text-3xl md:text-4xl font-extrabold tabular-nums; }
+.card-soft { @apply bg-white rounded-2xl shadow; }
+
