@@ -1,6 +1,6 @@
 "use client";
 import { useMemo } from "react";
-import { useRouter } from "next/navigation";   // 👈 добавил
+import { useRouter } from "next/navigation"; // 👈 добавлено
 
 const currency = (n: number) => new Intl.NumberFormat("ru-RU").format(n);
 
@@ -11,21 +11,20 @@ type Props = {
   items: Item[];
   changeQty: (id: string, delta: number) => void;
   removeItem: (id: string) => void;
-  // checkout: () => void;   👈 убрали, больше не нужно
 };
 
 export default function CartDrawer({ open, onClose, items, changeQty, removeItem }: Props) {
   const total = useMemo(() => items.reduce((s, i) => s + i.price * i.qty, 0), [items]);
-  const router = useRouter();   // 👈 для перехода на страницу оформления
+  const router = useRouter(); // 👈 используется для перехода
 
   return (
     <div className={`fixed inset-0 z-50 ${open ? "" : "pointer-events-none"}`}>
-      {/* Backdrop */}
+      {/* Задний фон */}
       <div
         className={`absolute inset-0 bg-black/40 transition-opacity ${open ? "opacity-100" : "opacity-0"}`}
         onClick={onClose}
       />
-      {/* Panel */}
+      {/* Панель корзины */}
       <aside
         className={`absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl p-5 flex flex-col gap-4 transition-transform ${
           open ? "translate-x-0" : "translate-x-full"
@@ -67,13 +66,10 @@ export default function CartDrawer({ open, onClose, items, changeQty, removeItem
           <button
             className="btn w-full"
             disabled={items.length === 0}
-            onClick={() => router.push("/checkout")}   // 👈 теперь переход без confirm
+            onClick={() => router.push("/checkout")} // 👈 переход на страницу оформления
           >
             Оформить и оплатить
           </button>
-          {/* <p className="text-xs text-gray-500 mt-2">
-            Демо: Payme подключим, когда внесём твои ключи мерчанта.
-          </p> */}
         </div>
       </aside>
     </div>

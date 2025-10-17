@@ -639,14 +639,6 @@ video {
 .aspect-video {
   aspect-ratio: 16 / 9;
 }
-.size-1 {
-  width: 0.25rem;
-  height: 0.25rem;
-}
-.size-14 {
-  width: 3.5rem;
-  height: 3.5rem;
-}
 .size-44 {
   width: 11rem;
   height: 11rem;
